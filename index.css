@@ -6,7 +6,7 @@
      background-image: url("../images/p1.jpg"); 
 }
 #news{
-    /* background-image: url("../images/p2.jpg"); */
+    background-image: url("../images/p2.jpg"); 
 }
 #service{
     background-image: url("../images/p3.jpg");
@@ -50,13 +50,12 @@ section{
 .txt-bg i{
     color: blue;
 }
-
 #service .imgbox{
     width: 80%;
     margin: auto;
     }
     #service img{
-        width: 100%;
+        width: 80%;
     }
 #about .imgbox{
 width: 80%;
