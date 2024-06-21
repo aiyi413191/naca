@@ -6,10 +6,10 @@
      background-image: url("../images/p1.jpg"); 
 }
 #news{
-    /* background-image: url("../images/p2.jpg"); */
+    background-image: url("../images/p2.jpg");
 }
 #service{
-    background-image: url("../images/p3.jpg");
+    background-image: url("../images/p3-01.png");
 }
 #contact{
     background-image: url("../images/p4.jpg");
@@ -32,7 +32,7 @@ section{
     /* 圖片從正中央往外擴 */
     background-position: center center;
     /* 內容開始位置 */
-    padding-top: 150px;
+    padding-top: 200px;
 }
 
 /* 各區的文字範圍 */
