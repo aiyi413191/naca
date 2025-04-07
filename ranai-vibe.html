@@ -34,11 +34,16 @@
       position: fixed;
       top: 0;
       left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* 確保視頻填滿頁面 */
       z-index: -1;
       opacity: 0.8;
+    }
+
+    /* 音樂 */
+    audio {
+      display: none;
     }
 
     /* 導覽列 */
@@ -127,6 +132,11 @@
 <video autoplay muted loop playsinline id="bgVideo">
   <source src="https://github.com/aiyi413191/naca/raw/refs/heads/main/images/bg-earth-ranai-main.mp4" type="video/mp4">
 </video>
+
+<!-- 音樂 -->
+<audio autoplay loop>
+  <source src="https://github.com/aiyi413191/naca/raw/refs/heads/main/images/bg-earth-ranai-main.mp3" type="audio/mp3">
+</audio>
 
 <!-- 🔗 導覽列 -->
 <nav>
@@ -221,4 +231,3 @@
 
 </body>
 </html>
-
