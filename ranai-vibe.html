@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ranai Vibe 一頁式網站</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet" />
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: #333;
+      background-color: #f3f2ef;
+      scroll-behavior: smooth;
+    }
+    nav {
+      background: rgba(255,255,255,0.9);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    nav a {
+      text-decoration: none;
+      color: #444;
+      font-weight: bold;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: #bcaea0;
+      bottom: -4px;
+      left: 0;
+      transition: 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    section {
+      padding: 100px 20px;
+      text-align: center;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+    #typing-text {
+      font-size: 1.2rem;
+      min-height: 4rem;
+      color: #555;
+      background: rgba(255,255,255,0.6);
+      padding: 1rem;
+      border-radius: 12px;
+      display: inline-block;
+    }
+    footer {
+      background: #dcd7d0;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .corner-logo {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      width: 48px;
+      height: 48px;
+      z-index: 999;
+    }
+    .corner-logo img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    video#bgVideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 🔮 背景動畫 -->
+<video autoplay muted loop playsinline id="bgVideo">
+  <source src="https://github.com/aiyi413191/naca/raw/refs/heads/main/images/bg-earth-ranai-main.mp4" type="video/mp4">
+</video>
+
+<!-- 🔗 導覽列 -->
+<nav>
+  <a href="#brand">品牌導覽</a>
+  <a href="#works">作品集</a>
+  <a href="#services">服務項目</a>
+  <a href="#contact">聯絡我們</a>
+</nav>
+
+<!-- 🎉 歡迎區 -->
+<section id="brand">
+  <h2 class="section-title">🌟 歡迎來到 Ranai Vibe</h2>
+  <p id="typing-text"></p>
+</section>
+
+<!-- 🎨 作品集 -->
+<section id="works">
+  <h2 class="section-title">🎨 作品集</h2>
+  <div class="content">
+    這裡將展示妳的商品圖、設計作品，未來可用滑動圖組展示 🖼️
+  </div>
+</section>
+
+<!-- 🛠️ 服務項目 -->
+<section id="services">
+  <h2 class="section-title">🛠️ 服務項目</h2>
+  <div class="content">
+    選物代購｜廣告設計｜布幔訂製｜五行選品諮詢<br>每一項都為你貼心打造。
+  </div>
+</section>
+
+<!-- 📩 聯絡我們 -->
+<section id="contact">
+  <h2 class="section-title">📩 聯絡我們</h2>
+  <div class="content">
+    <p><a href="https://forms.gle/GbQ16yzJLLfJ6dC18" target="_blank">👉 點我填寫 Google 表單</a></p>
+    <p><a href="https://lin.ee/6wxEWU1" target="_blank">💬 立即 LINE 私訊冉璦</a></p>
+  </div>
+</section>
+
+<footer>
+  © 2025 Ranai Vibe 品牌設計出品 ∙ 一頁式網站 ✦ 靈感構築 by 冉璦
+</footer>
+
+<!-- 🪐 左下角 logo -->
+<div class="corner-logo">
+  <img src="https://raw.githubusercontent.com/aiyi413191/naca/refs/heads/main/images/ranai-favicon.ico" alt="Ranai logo" title="Ranai vibe 是溫柔靈感的日常氣場 ∙ 五行與感受的對話" />
+</div>
+
+<!-- 打字動畫效果 -->
+<script>
+  const text = [
+    "我們提供各式生活用品、傢俱、家電，還有你找不到的設計靈感。",
+    "布幔廣告、素材選物，一站式服務陪你走進理想生活。",
+    "有感就對了，因為你正在走對的方向 ☁️"
+  ];
+  let line = 0, letter = 0;
+  const typingSpeed = 70;
+  const typingElement = document.getElementById("typing-text");
+
+  function typeLine() {
+    if (line < text.length) {
+      if (letter < text[line].length) {
+        typingElement.innerHTML += text[line].charAt(letter);
+        letter++;
+        setTimeout(typeLine, typingSpeed);
+      } else {
+        typingElement.innerHTML += "<br>";
+        line++;
+        letter = 0;
+        setTimeout(typeLine, 600);
+      }
+    }
+  }
+  window.onload = () => {
+    setTimeout(typeLine, 800);
+  };
+</script>
+
+</body>
+</html>
