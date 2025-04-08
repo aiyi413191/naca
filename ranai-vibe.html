@@ -6,48 +6,13 @@
   <title>Ranai Vibe 一頁式網站</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {margin: 0; padding: 0; box-sizing: border-box;}
     body {
       font-family: 'Noto Sans TC', sans-serif;
       color: #333;
       background-color: #f3f2ef;
       scroll-behavior: smooth;
-      overflow-x: hidden;
-      position: relative;
     }
-    
-    /* 音符飄動動畫 */
-    .note {
-      position: absolute;
-      font-size: 24px;
-      opacity: 0.8;
-      animation: float 10s ease-in-out forwards;
-    }
-    @keyframes float {
-      0% { transform: translateY(0); opacity: 1; }
-      50% { transform: translateY(-200px); opacity: 0.7; }
-      100% { transform: translateY(-400px); opacity: 0; }
-    }
-
-    /* 背景動畫 */
-    video#bgVideo {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* 確保視頻填滿頁面 */
-      z-index: -1;
-      opacity: 0.8;
-    }
-
-    /* 音樂 */
-   <audio autoplay loop>
-  <source src="https://github.com/aiyi413191/naca/raw/refs/heads/main/images/bg-earth-ranai-main.mp3" type="audio/mp3">
-  Your browser does not support the audio element.
-</audio>
-
-    /* 導覽列 */
     nav {
       background: rgba(255,255,255,0.9);
       display: flex;
@@ -78,7 +43,6 @@
     nav a:hover::after {
       width: 100%;
     }
-
     section {
       padding: 100px 20px;
       text-align: center;
@@ -92,15 +56,6 @@
       margin: 0 auto;
       line-height: 1.8;
     }
-    #typing-text {
-      font-size: 1.2rem;
-      min-height: 4rem;
-      color: #555;
-      background: rgba(255,255,255,0.6);
-      padding: 1rem;
-      border-radius: 12px;
-      display: inline-block;
-    }
     footer {
       background: #dcd7d0;
       text-align: center;
@@ -109,32 +64,31 @@
       color: #555;
     }
 
-    /* 左下角 logo */
-    .corner-logo {
-      position: fixed;
-      left: 20px;
-      bottom: 20px;
-      width: 48px;
-      height: 48px;
-      z-index: 999;
-    }
-    .corner-logo img {
-      width: 100%;
-      height: auto;
-      border-radius: 50%;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* 🎶 音符動畫樣式 */
+    .note {
+      position: absolute;
+      font-size: 2rem;
+      animation: float 10s infinite ease-in-out;
     }
 
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-150px) rotate(360deg);
+      }
+    }
   </style>
 </head>
 <body>
 
 <!-- 🔮 背景動畫 -->
 <video autoplay muted loop playsinline id="bgVideo">
-  <source src="https://www.canva.com/design/DAGjd72z2mg/36LixNW_VOO5u7wrPBEWlg/watch" type="video/mp4">
+  <source src="https://github.com/aiyi413191/naca/raw/refs/heads/main/images/bg-earth-ranai-main.mp4" type="video/mp4">
 </video>
 
-<!-- 音樂 -->
+<!-- 🎶 背景音樂 -->
 <audio autoplay loop>
   <source src="https://github.com/aiyi413191/naca/raw/refs/heads/main/images/bg-earth-ranai-main.mp3" type="audio/mp3">
 </audio>
@@ -150,14 +104,14 @@
 <!-- 🎉 歡迎區 -->
 <section id="brand">
   <h2 class="section-title">🌟 歡迎來到 Ranai Vibe</h2>
-  <p id="typing-text"></p>
+  <p>我們提供各式生活用品、傢俱、家電，還有你找不到的設計靈感。</p>
 </section>
 
 <!-- 🎨 作品集 -->
 <section id="works">
   <h2 class="section-title">🎨 作品集</h2>
   <div class="content">
-    這裡將展示妳的商品圖、設計作品，未來可用滑動圖組展示 🖼️
+    這裡將展示商品圖、設計作品，未來可用滑動圖組展示 🖼️
   </div>
 </section>
 
@@ -178,16 +132,16 @@
   </div>
 </section>
 
+<!-- 🎶 飄動音符動畫 -->
+<div style="position: relative; width: 100%; height: 0; padding-top: 41.6667%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" src="https://www.canva.com/design/DAGjd72z2mg/36LixNW_VOO5u7wrPBEWlg/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+</div>
+
 <footer>
   © 2025 Ranai Vibe 品牌設計出品 ∙ 一頁式網站 ✦ 靈感構築 by 冉璦
 </footer>
 
-<!-- 🪐 左下角 logo -->
-<div class="corner-logo">
-  <img src="https://raw.githubusercontent.com/aiyi413191/naca/refs/heads/main/images/ranai-favicon.ico" alt="Ranai logo" title="Ranai vibe 是溫柔靈感的日常氣場 ∙ 五行與感受的對話" />
-</div>
-
-<!-- 🎶 音符飄動動畫 -->
+<!-- 打字動畫效果 -->
 <script>
   const notes = ["🎵", "🎶", "✨", "🌸", "🌟"];
   setInterval(() => {
@@ -198,36 +152,6 @@
     document.body.appendChild(note);
     setTimeout(() => note.remove(), 10000);
   }, 800);
-</script>
-
-<!-- 打字動畫效果 -->
-<script>
-  const text = [
-    "我們提供各式生活用品、傢俱、家電，還有你找不到的設計靈感。",
-    "布幔廣告、素材選物，一站式服務陪你走進理想生活。",
-    "有感就對了，因為你正在走對的方向 ☁️"
-  ];
-  let line = 0, letter = 0;
-  const typingSpeed = 70;
-  const typingElement = document.getElementById("typing-text");
-
-  function typeLine() {
-    if (line < text.length) {
-      if (letter < text[line].length) {
-        typingElement.innerHTML += text[line].charAt(letter);
-        letter++;
-        setTimeout(typeLine, typingSpeed);
-      } else {
-        typingElement.innerHTML += "<br>";
-        line++;
-        letter = 0;
-        setTimeout(typeLine, 600);
-      }
-    }
-  }
-  window.onload = () => {
-    setTimeout(typeLine, 800);
-  };
 </script>
 
 </body>
