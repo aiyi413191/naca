@@ -13,6 +13,20 @@
       background-color: #f3f2ef;
       scroll-behavior: smooth;
     }
+
+    /* 背景視頻 */
+    #bgVideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.8;
+    }
+
+    /* 滑動導覽列 */
     nav {
       background: rgba(255,255,255,0.9);
       display: flex;
@@ -24,6 +38,7 @@
       z-index: 1000;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+
     nav a {
       text-decoration: none;
       color: #444;
@@ -43,6 +58,8 @@
     nav a:hover::after {
       width: 100%;
     }
+
+    /* 各區段設計 */
     section {
       padding: 100px 20px;
       text-align: center;
@@ -56,6 +73,7 @@
       margin: 0 auto;
       line-height: 1.8;
     }
+
     footer {
       background: #dcd7d0;
       text-align: center;
@@ -64,7 +82,7 @@
       color: #555;
     }
 
-    /* 🎶 音符動畫樣式 */
+    /* 飄動音符動畫樣式 */
     .note {
       position: absolute;
       font-size: 2rem;
@@ -79,6 +97,23 @@
         transform: translateY(-150px) rotate(360deg);
       }
     }
+
+    /* 左下角 logo */
+    .corner-logo {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      width: 48px;
+      height: 48px;
+      z-index: 999;
+    }
+
+    .corner-logo img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
   </style>
 </head>
 <body>
@@ -91,6 +126,7 @@
 <!-- 🎶 背景音樂 -->
 <audio autoplay loop>
   <source src="https://github.com/aiyi413191/naca/raw/refs/heads/main/images/bg-earth-ranai-main.mp3" type="audio/mp3">
+  您的瀏覽器不支援音樂播放。
 </audio>
 
 <!-- 🔗 導覽列 -->
@@ -132,16 +168,12 @@
   </div>
 </section>
 
-<!-- 🎶 飄動音符動畫 -->
-<div style="position: relative; width: 100%; height: 0; padding-top: 41.6667%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" src="https://www.canva.com/design/DAGjd72z2mg/36LixNW_VOO5u7wrPBEWlg/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+<!-- 🪐 左下角 logo -->
+<div class="corner-logo">
+  <img src="https://raw.githubusercontent.com/aiyi413191/naca/refs/heads/main/images/ranai-favicon.ico" alt="Ranai logo" title="Ranai vibe 是溫柔靈感的日常氣場 ∙ 五行與感受的對話" />
 </div>
 
-<footer>
-  © 2025 Ranai Vibe 品牌設計出品 ∙ 一頁式網站 ✦ 靈感構築 by 冉璦
-</footer>
-
-<!-- 打字動畫效果 -->
+<!-- 🎶 飄動音符動畫 -->
 <script>
   const notes = ["🎵", "🎶", "✨", "🌸", "🌟"];
   setInterval(() => {
@@ -152,6 +184,36 @@
     document.body.appendChild(note);
     setTimeout(() => note.remove(), 10000);
   }, 800);
+</script>
+
+<!-- 打字動畫效果 -->
+<script>
+  const text = [
+    "我們提供各式生活用品、傢俱、家電，還有你找不到的設計靈感。",
+    "布幔廣告、素材選物，一站式服務陪你走進理想生活。",
+    "有感就對了，因為你正在走對的方向 ☁️"
+  ];
+  let line = 0, letter = 0;
+  const typingSpeed = 70;
+  const typingElement = document.getElementById("typing-text");
+
+  function typeLine() {
+    if (line < text.length) {
+      if (letter < text[line].length) {
+        typingElement.innerHTML += text[line].charAt(letter);
+        letter++;
+        setTimeout(typeLine, typingSpeed);
+      } else {
+        typingElement.innerHTML += "<br>";
+        line++;
+        letter = 0;
+        setTimeout(typeLine, 600);
+      }
+    }
+  }
+  window.onload = () => {
+    setTimeout(typeLine, 800);
+  };
 </script>
 
 </body>
